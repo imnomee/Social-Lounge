@@ -3,6 +3,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/auth.route.js';
 import tweetRoutes from './routes/tweet.route.js';
 import userRoutes from './routes/user.route.js';
+import commentRoutes from './routes/comment.route.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/api/auth', authRoutes);
 app.use('/api/tweets', tweetRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/comments', commentRoutes);
 
 app.listen(PORT, () =>
     console.log(`Server is running on: http://localhost:${PORT}`)

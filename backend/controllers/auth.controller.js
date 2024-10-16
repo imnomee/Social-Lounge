@@ -31,11 +31,10 @@ export const login = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: '1d',
         });
-        return res
-            .cookie('token', token, {
-                httpOnly: true,
-            })
-            .json({ message: 'Login successful' });
+        res.cookie('token', token, {
+            httpOnly: true,
+        });
+        return res.status(200).json({ message: 'Login successful', token });
     } catch (error) {
         return res.status(400).json({ message: error.message });
     }
