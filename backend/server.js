@@ -4,6 +4,7 @@ import authRoutes from './routes/auth.route.js';
 import tweetRoutes from './routes/tweet.route.js';
 import userRoutes from './routes/user.route.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 7860;
@@ -12,6 +13,7 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.use('/api/auth', authRoutes);
 app.use('/api/tweets', tweetRoutes);
 app.use('/api/users', userRoutes);
